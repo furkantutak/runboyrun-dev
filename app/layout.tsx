@@ -1,38 +1,23 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { ThemeProvider } from "@/components/theme/theme-provider";
+import { Inter as GeistSans } from "next/font/google";
+import { JetBrains_Mono as GeistMono } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/layout/Footer";
+import TimeBadge from "@/components/ui/TimeBadge";
+
+const geistSans = GeistSans({
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
+
+const geistMono = GeistMono({
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
 
 export const metadata: Metadata = {
-  title: "RunBoyRun.dev | Kod senin dilin. Platform senin sahnen.",
-  description: "RunBoyRun, yaratıcı geliştiriciler için yaşayan bir deneyim alanı. AI ile insan yaratıcılığını birleştirerek geleceğin geliştirme deneyimini şekillendiriyoruz.",
-  keywords: ["RunBoyRun", "development", "AI", "coding", "creative coding", "developer experience"],
-  authors: [{ name: "Furkan" }],
-  creator: "Furkan",
-  publisher: "RunBoyRun.dev",
-  robots: "index, follow",
-  openGraph: {
-    type: "website",
-    locale: "tr_TR",
-    url: "https://runboyrun.dev",
-    siteName: "RunBoyRun.dev",
-    title: "RunBoyRun.dev | Kod senin dilin. Platform senin sahnen.",
-    description: "RunBoyRun, yaratıcı geliştiriciler için yaşayan bir deneyim alanı.",
-    images: [
-      {
-        url: "https://runboyrun.dev/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "RunBoyRun.dev",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "RunBoyRun.dev | Kod senin dilin. Platform senin sahnen.",
-    description: "RunBoyRun, yaratıcı geliştiriciler için yaşayan bir deneyim alanı.",
-    images: ["https://runboyrun.dev/og-image.png"],
-  },
+  title: "RunBoyRun.dev - Kod senin dilin, Platform senin sahnen",
+  description: "RunBoyRun, yaratıcı geliştiriciler için yaşayan bir deneyim alanı.",
 };
 
 export default function RootLayout({
@@ -42,30 +27,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" suppressHydrationWarning>
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link
-          rel="icon"
-          href="/icon?<generated>"
-          type="image/<generated>"
-          sizes="<generated>"
-        />
-        <link
-          rel="apple-touch-icon"
-          href="/apple-icon?<generated>"
-          type="image/<generated>"
-          sizes="<generated>"
-        />
-      </head>
-      <body className={GeistSans.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}>
+        <main className="flex-1">
           {children}
-        </ThemeProvider>
+        </main>
+        <Footer />
+        <TimeBadge />
       </body>
     </html>
   );

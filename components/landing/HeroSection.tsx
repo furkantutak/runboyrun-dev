@@ -3,17 +3,9 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useTranslation } from "@/app/i18n/client";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
-import { Locale } from "@/app/i18n-settings";
 
-interface HeroSectionProps {
-  lng: Locale;
-}
-
-export default function HeroSection({ lng }: HeroSectionProps) {
-  const { t } = useTranslation('hero', lng);
-
+export default function HeroSection() {
   return (
     <motion.section
       className="relative w-full min-h-[80vh] flex flex-col items-center justify-center py-24 text-center space-y-8"
@@ -35,9 +27,9 @@ export default function HeroSection({ lng }: HeroSectionProps) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          {t("title")}{" "}
+          Kod senin dilin.{" "}
           <span className="text-teal-400 drop-shadow-[0_0_20px_rgba(45,212,191,0.4)]">
-            {t("highlight")}
+            Platform senin sahnen.
           </span>
         </motion.h1>
 
@@ -47,7 +39,7 @@ export default function HeroSection({ lng }: HeroSectionProps) {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          {t("description")}
+          RunBoyRun, yaratıcı geliştiriciler için yaşayan bir deneyim alanı.
         </motion.p>
 
         <motion.div 
@@ -58,7 +50,7 @@ export default function HeroSection({ lng }: HeroSectionProps) {
         >
           <Link href="/terminal">
             <Button size="lg" className="text-lg px-8 py-6 hover:scale-105 transition-transform">
-              {t("cta")}
+              🚀 Hemen Terminale Geç
             </Button>
           </Link>
         </motion.div>

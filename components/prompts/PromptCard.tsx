@@ -3,7 +3,6 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useTranslation } from "@/app/i18n/client";
 
 type PromptCardProps = {
   category: string;
@@ -18,8 +17,6 @@ export default function PromptCard({
   description,
   example,
 }: PromptCardProps) {
-  const { t } = useTranslation("prompt");
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -56,7 +53,7 @@ export default function PromptCard({
             variant="default"
             className="w-full transition-all duration-300 hover:scale-[1.02]"
           >
-            {t("pack.tryIt")}
+            Terminalde Dene
           </Button>
         </div>
       </div>

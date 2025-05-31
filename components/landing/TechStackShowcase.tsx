@@ -9,8 +9,6 @@ import {
   SiOpenai,
   SiSupabase,
 } from "react-icons/si";
-import { useTranslation } from "@/app/i18n/client";
-import { Locale } from "@/app/i18n-settings";
 
 const stacks = [
   { name: "Next.js", icon: SiNextdotjs },
@@ -21,13 +19,7 @@ const stacks = [
   { name: "Supabase", icon: SiSupabase },
 ];
 
-interface TechStackShowcaseProps {
-  lng: Locale;
-}
-
-export default function TechStackShowcase({ lng }: TechStackShowcaseProps) {
-  const { t } = useTranslation('tech', lng);
-
+export default function TechStackShowcase() {
   return (
     <motion.section
       className="py-16 px-4 max-w-4xl mx-auto text-center space-y-8"
@@ -36,9 +28,10 @@ export default function TechStackShowcase({ lng }: TechStackShowcaseProps) {
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
     >
-      <h2 className="text-3xl font-semibold sm:text-4xl">{t("title")}</h2>
+      <h2 className="text-3xl font-semibold sm:text-4xl">Kullandığımız Güçler</h2>
       <p className="text-muted-foreground text-lg">
-        {t("description")}
+        Bu site sadece bir web sayfası değil; modern yazılım teknolojilerinin 
+        birlikte nasıl çalıştığını gösteren canlı bir vitrin.
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 justify-center items-center">

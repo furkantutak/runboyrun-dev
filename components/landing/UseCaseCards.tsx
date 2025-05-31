@@ -1,35 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslation } from "@/app/i18n/client";
-import { Locale } from "@/app/i18n-settings";
 
-interface UseCaseCardsProps {
-  lng: Locale;
-}
+const useCases = [
+  {
+    title: "Etkinlik Sunumları",
+    description: "RunBoyRun ile bir etkinlikte sunum yaparken dikkatleri üzerine topla. Konteks asla kaybolmaz.",
+  },
+  {
+    title: "Startup Tanıtımı",
+    description: "Yatırımcılara veya topluluğa startup'ını anlatırken güçlü ve sade bir altyapı sun.",
+  },
+  {
+    title: "Teknik Demo Ortamı",
+    description: "Kod tabanını, yapay zekâ yeteneklerini veya altyapı çözümlerini canlı bir sahnede göster.",
+  },
+  {
+    title: "Kişisel Marka Sitesi",
+    description: "CV değil, bir hareket. Seni anlatan sistemli bir dijital kimlik sun.",
+  },
+];
 
-export default function UseCaseCards({ lng }: UseCaseCardsProps) {
-  const { t } = useTranslation('useCases', lng);
-
-  const useCases = [
-    {
-      title: t("cases.events.title"),
-      description: t("cases.events.description"),
-    },
-    {
-      title: t("cases.startup.title"),
-      description: t("cases.startup.description"),
-    },
-    {
-      title: t("cases.demo.title"),
-      description: t("cases.demo.description"),
-    },
-    {
-      title: t("cases.personal.title"),
-      description: t("cases.personal.description"),
-    },
-  ];
-
+export default function UseCaseCards() {
   return (
     <motion.section
       className="py-20 px-4 max-w-6xl mx-auto space-y-12"
@@ -39,7 +31,7 @@ export default function UseCaseCards({ lng }: UseCaseCardsProps) {
       transition={{ duration: 0.6 }}
     >
       <h2 className="text-3xl font-semibold text-center sm:text-4xl">
-        {t("title")}
+        Nerelerde Kullanılır?
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { useTranslation } from "@/app/i18n/client";
 import { PROMPTS, PROMPT_CATEGORIES } from "@/lib/promptData";
 import PromptCard from "./PromptCard";
 import PromptSearch from "./PromptSearch";
@@ -10,7 +9,6 @@ import PromptSearch from "./PromptSearch";
 export default function PromptPackSection() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const { t } = useTranslation("prompt");
 
   const filteredPrompts = useMemo(() => {
     let filtered = PROMPTS;
@@ -49,7 +47,7 @@ export default function PromptPackSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            {t("title")}
+            Prompt Pack
           </motion.h2>
           <motion.p
             className="text-xl text-muted-foreground max-w-2xl mx-auto"
@@ -57,7 +55,7 @@ export default function PromptPackSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            {t("description")}
+            Hazır prompt'lar ile yaratıcılığını güçlendir.
           </motion.p>
         </motion.div>
 
@@ -72,7 +70,7 @@ export default function PromptPackSection() {
                 : "bg-secondary hover:bg-secondary/80"
             }`}
           >
-            {t("search.filters.all")}
+            Tümü
           </button>
           {PROMPT_CATEGORIES.map(category => (
             <button
@@ -84,7 +82,7 @@ export default function PromptPackSection() {
                   : "bg-secondary hover:bg-secondary/80"
               }`}
             >
-              {t(`categories.${category.toLowerCase()}.title`)}
+              {category}
             </button>
           ))}
         </div>
@@ -94,7 +92,7 @@ export default function PromptPackSection() {
             filteredPrompts.map(prompt => (
               <PromptCard
                 key={prompt.id}
-                category={t(`categories.${prompt.category.toLowerCase()}.title`)}
+                category={prompt.category}
                 title={prompt.title}
                 description={prompt.description}
                 example={prompt.example}
@@ -103,7 +101,7 @@ export default function PromptPackSection() {
           ) : (
             <div className="col-span-full text-center py-12">
               <p className="text-lg text-muted-foreground">
-                {t("search.noResults")}
+                Aradığınız kriterlere uygun prompt bulunamadı.
               </p>
             </div>
           )}
