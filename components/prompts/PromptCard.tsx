@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n/client";
 
 type PromptCardProps = {
   category: string;

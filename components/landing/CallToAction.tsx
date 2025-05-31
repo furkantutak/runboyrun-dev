@@ -2,8 +2,16 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslation } from "@/app/i18n/client";
+import { Locale } from "@/app/i18n-settings";
 
-export default function CallToAction() {
+interface CallToActionProps {
+  lng: Locale;
+}
+
+export default function CallToAction({ lng }: CallToActionProps) {
+  const { t } = useTranslation('cta', lng);
+
   return (
     <motion.section
       className="py-20 px-4 text-center max-w-4xl mx-auto space-y-6"
@@ -13,11 +21,10 @@ export default function CallToAction() {
       transition={{ duration: 0.6 }}
     >
       <h2 className="text-3xl sm:text-4xl font-bold">
-        Hazırsan, harekete geçme zamanı.
+        {t("title")}
       </h2>
       <p className="text-muted-foreground">
-        Bu bir portfolyo değil, bu bir hareket.  
-        Aşağıdaki bağlantılarla RunBoyRun dünyasına sen de dahil olabilirsin.
+        {t("description")}
       </p>
 
       <div className="flex justify-center flex-wrap gap-4">
@@ -25,19 +32,19 @@ export default function CallToAction() {
           href="/prompt-pack"
           className="px-6 py-3 rounded-full bg-primary text-white font-semibold shadow hover:opacity-90 transition"
         >
-          🎁 Prompt Pack'i İncele
+          {t("buttons.promptPack")}
         </Link>
         <Link
           href="/terminal"
           className="px-6 py-3 rounded-full bg-green-600 text-white font-semibold shadow hover:opacity-90 transition"
         >
-          👨‍💻 Builder Terminal
+          {t("buttons.terminal")}
         </Link>
         <Link
           href="/qr"
           className="px-6 py-3 rounded-full border border-primary text-primary font-semibold hover:bg-primary hover:text-white transition"
         >
-          📎 Etkinlik QR'ı
+          {t("buttons.qr")}
         </Link>
       </div>
     </motion.section>

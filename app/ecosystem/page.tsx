@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "react-i18next";
+import i18next from "@/app/i18n/client";
 import AgentCard from "@/components/ecosystem/AgentCard";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
 

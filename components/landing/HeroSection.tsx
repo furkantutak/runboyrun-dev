@@ -3,11 +3,16 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n/client";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
+import { Locale } from "@/app/i18n-settings";
 
-export default function HeroSection() {
-  const { t } = useTranslation("hero");
+interface HeroSectionProps {
+  lng: Locale;
+}
+
+export default function HeroSection({ lng }: HeroSectionProps) {
+  const { t } = useTranslation('hero', lng);
 
   return (
     <motion.section

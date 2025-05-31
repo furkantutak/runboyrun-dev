@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ScrollText } from "lucide-react";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n/client";
 import SprintCard from "@/components/journal/SprintCard";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
 
@@ -13,10 +13,10 @@ export default function JournalPage() {
 
   const sprintEntries = SPRINT_IDS.map(id => ({
     id: `sprint-${id}`,
-    title: t(`sprints.${id}.title`),
-    date: t(`sprints.${id}.date`),
-    emoji: t(`sprints.${id}.emoji`),
-    summary: t(`sprints.${id}.summary`),
+    title: t(`sprints.${id}.title`) as string,
+    date: t(`sprints.${id}.date`) as string,
+    emoji: t(`sprints.${id}.emoji`) as string,
+    summary: t(`sprints.${id}.summary`) as string,
     highlights: t(`sprints.${id}.highlights`, { returnObjects: true }) as string[],
     contributors: t(`sprints.${id}.contributors`, { returnObjects: true }) as { name: string; contribution: string }[],
     techStack: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"]
@@ -35,14 +35,14 @@ export default function JournalPage() {
         >
           <div className="inline-flex items-center gap-2 text-sm text-muted-foreground border border-border rounded-full px-4 py-2 mb-8">
             <ScrollText className="w-4 h-4" />
-            {t("badge")}
+            {t("badge") as string}
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            {t("title")}
+            {t("title") as string}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t("subtitle")}
+            {t("subtitle") as string}
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ export default function JournalPage() {
           >
             <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              {t("comingSoon")}
+              {t("comingSoon") as string}
             </div>
           </motion.div>
         </div>

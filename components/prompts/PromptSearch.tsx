@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Search } from "lucide-react";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n/client";
 import { Input } from "@/components/ui/input";
 import { useDebouncedCallback } from "use-debounce";
 

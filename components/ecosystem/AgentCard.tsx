@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n";
 import AgentDetailModal from "./AgentDetailModal";
 
 export interface AgentCardProps {
@@ -21,7 +21,7 @@ export interface AgentCardProps {
   isNew?: boolean;
 }
 
-export default function AgentCard({
+export default async function AgentCard({
   name,
   role,
   description,
@@ -33,7 +33,7 @@ export default function AgentCard({
 }: AgentCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { t } = useTranslation("ecosystem");
+  const { t } = await useTranslation('tr', 'ecosystem');
 
   return (
     <>

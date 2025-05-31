@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n/client";
 
 const manifestoSections = [
   {
@@ -43,10 +43,10 @@ export default function ManifestoPage() {
           className="text-center space-y-4 mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            {t("title")}
+            {t("title") as string}
           </h1>
           <p className="text-xl text-muted-foreground">
-            {t("subtitle")}
+            {t("subtitle") as string}
           </p>
         </motion.div>
 
@@ -69,12 +69,12 @@ export default function ManifestoPage() {
               <div className="bg-black/5 dark:bg-white/5 backdrop-blur-sm rounded-lg p-8 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300 group-hover:scale-[1.02]">
                 <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                   <span className={`bg-gradient-to-r ${section.color} bg-clip-text text-transparent`}>
-                    {t(`sections.${section.id}.title`)}
+                    {t(`sections.${section.id}.title`) as string}
                   </span>
                   <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-1 transition-transform" />
                 </h2>
                 <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-                  {t(`sections.${section.id}.description`)}
+                  {t(`sections.${section.id}.description`) as string}
                 </p>
                 <ul className="space-y-2">
                   {(t(`sections.${section.id}.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
@@ -97,14 +97,14 @@ export default function ManifestoPage() {
         >
           <div className="inline-flex items-center gap-2 text-sm text-muted-foreground border border-border rounded-full px-4 py-2">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            {t("cta.join")}
+            {t("cta.join") as string}
           </div>
           <div className="flex justify-center gap-4">
             <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {t("cta.explore")}
+              {t("cta.explore") as string}
             </button>
             <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              {t("cta.contribute")}
+              {t("cta.contribute") as string}
             </button>
           </div>
         </motion.div>

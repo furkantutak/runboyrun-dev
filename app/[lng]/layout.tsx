@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import { GeistSans } from "geist/font/sans";
-import { ThemeProvider } from "@/components/theme/theme-provider";
-import "./globals.css";
+import { GeistSans } from "geist/font";
+import { ThemeProvider } from "next-themes";
+import { useTranslation } from "../i18n";
+import { i18n, Locale } from "../i18n-settings";
+import "../globals.css";
 
 export const metadata: Metadata = {
   title: "RunBoyRun.dev | Kod senin dilin. Platform senin sahnen.",
@@ -35,13 +37,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+const namespaces = ["hero", "about", "tech", "useCases", "cta", "ecosystem", "journal", "manifesto"];
+
+export default async function RootLayout({
   children,
-}: Readonly<{
+  params: { lng }
+}: {
   children: React.ReactNode;
-}>) {
+  params: { lng: Locale };
+}) {
+  await useTranslation(lng, namespaces[0]);
+
   return (
-    <html lang="tr" suppressHydrationWarning>
+    <html lang={lng} suppressHydrationWarning className={GeistSans.className}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link
@@ -57,7 +65,7 @@ export default function RootLayout({
           sizes="<generated>"
         />
       </head>
-      <body className={GeistSans.className}>
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -69,4 +77,4 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+} 

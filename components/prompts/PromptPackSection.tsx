@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n/client";
 import { PROMPTS, PROMPT_CATEGORIES } from "@/lib/promptData";
 import PromptCard from "./PromptCard";
 import PromptSearch from "./PromptSearch";

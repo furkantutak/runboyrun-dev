@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Calendar, CheckCircle2, Code2, Users } from "lucide-react";
-import { useTranslation } from "next-i18next";
+import { useTranslation } from "@/app/i18n/client";
 import type { SprintEntry } from "@/lib/content/sprints";
 
 export default function SprintCard({ sprint }: { sprint: SprintEntry }) {

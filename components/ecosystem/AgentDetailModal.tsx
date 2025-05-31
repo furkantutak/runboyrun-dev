@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Star, Brain, Sparkles, MessageSquare } from "lucide-react";
 import Image from "next/image";
+import { useTranslation } from "@/app/i18n";
 import type { AgentCardProps } from "./AgentCard";
 
 interface AgentDetailModalProps {
@@ -12,20 +13,22 @@ interface AgentDetailModalProps {
 }
 
 const agentQuotes = {
-  LENA: "Yaratıcılık, kodun kalbinde yatan güzelliktir. Ben bu güzelliği görselleştiriyorum.",
-  KOSMOS: "Her satır kod, geleceğe atılan bir adımdır. Ben bu adımları optimize ediyorum.",
-  Claude: "Kalite, detaylarda gizlidir. Ben bu detayları mükemmelleştiriyorum.",
-  Furkan: "RunBoyRun, hayallerimizin koşu pisti. Birlikte koşmaya devam!"
+  furkan: "RunBoyRun, hayallerimizin koşu pisti. Birlikte koşmaya devam!",
+  kosmos: "Her satır kod, geleceğe atılan bir adımdır. Ben bu adımları optimize ediyorum.",
+  lena: "Yaratıcılık, kodun kalbinde yatan güzelliktir. Ben bu güzelliği görselleştiriyorum.",
+  claude: "Kalite, detaylarda gizlidir. Ben bu detayları mükemmelleştiriyorum."
 };
 
 const agentSpecialties = {
-  LENA: ["UI/UX Tasarımı", "Görsel Hikaye Anlatımı", "Kullanıcı Deneyimi", "Yaratıcı Yönlendirme"],
-  KOSMOS: ["Sistem Mimarisi", "Performans Optimizasyonu", "AI Entegrasyonu", "Stratejik Planlama"],
-  Claude: ["Kod Kalitesi", "Best Practices", "Teknik Dokümantasyon", "Problem Çözümü"],
-  Furkan: ["Full Stack Geliştirme", "Proje Yönetimi", "İnovasyon", "Ekip Liderliği"]
+  furkan: ["Full Stack Geliştirme", "Proje Yönetimi", "İnovasyon", "Ekip Liderliği"],
+  kosmos: ["Sistem Mimarisi", "Performans Optimizasyonu", "AI Entegrasyonu", "Stratejik Planlama"],
+  lena: ["UI/UX Tasarımı", "Görsel Hikaye Anlatımı", "Kullanıcı Deneyimi", "Yaratıcı Yönlendirme"],
+  claude: ["Kod Kalitesi", "Best Practices", "Teknik Dokümantasyon", "Problem Çözümü"]
 };
 
-export default function AgentDetailModal({ agent, isOpen, onClose }: AgentDetailModalProps) {
+export default async function AgentDetailModal({ agent, isOpen, onClose }: AgentDetailModalProps) {
+  const { t } = await useTranslation('tr', 'ecosystem');
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -86,7 +89,7 @@ export default function AgentDetailModal({ agent, isOpen, onClose }: AgentDetail
 
                 {/* Quote */}
                 <div className="mt-6 p-4 rounded-lg bg-primary/5 border border-primary/10">
-                  <p className="text-sm italic">"{agentQuotes[agent.name as keyof typeof agentQuotes]}"</p>
+                  <p className="text-sm italic">"{agentQuotes[agent.name.toLowerCase() as keyof typeof agentQuotes]}"</p>
                 </div>
 
                 {/* Specialties */}
@@ -96,7 +99,7 @@ export default function AgentDetailModal({ agent, isOpen, onClose }: AgentDetail
                     Uzmanlık Alanları
                   </h3>
                   <div className="grid grid-cols-2 gap-3">
-                    {agentSpecialties[agent.name as keyof typeof agentSpecialties]?.map((specialty, index) => (
+                    {agentSpecialties[agent.name.toLowerCase() as keyof typeof agentSpecialties]?.map((specialty, index) => (
                       <div
                         key={index}
                         className="flex items-center gap-2 text-sm p-2 rounded-lg bg-black/5 dark:bg-white/5"

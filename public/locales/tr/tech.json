@@ -1,6 +1,6 @@
 {
-  "title": "Zemin Sağlamsa, Her Şey Mümkün.",
-  "description": "Modern teknolojilerle güçlendirilmiş bir platform.",
+  "title": "Kullandığımız Güçler",
+  "description": "Bu site sadece bir web sayfası değil; modern yazılım teknolojilerinin birlikte nasıl çalıştığını gösteren canlı bir vitrin.",
   "stack": {
     "nextjs": {
       "title": "Next.js",
