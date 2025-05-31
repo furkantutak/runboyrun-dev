@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "manifesto": "Manifesto",
+    "ecosystem": "Ekosistem",
+    "journal": "Günlük",
+    "promptPack": "Prompt Pack"
+  },
+  "footer": {
+    "createdBy": "RunBoyRun.dev tarafından ❤️ ile yapıldı",
+    "language": "Dil"
+  },
+  "meta": {
+    "title": "RunBoyRun.dev | Kod senin dilin. Platform senin sahnen.",
+    "description": "RunBoyRun, yaratıcı geliştiriciler için yaşayan bir deneyim alanı."
+  }
+} 

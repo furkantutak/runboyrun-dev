@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "manifesto": "Manifesto",
+    "ecosystem": "Ecosystem",
+    "journal": "Journal",
+    "promptPack": "Prompt Pack"
+  },
+  "footer": {
+    "createdBy": "Made with ❤️ by RunBoyRun.dev",
+    "language": "Language"
+  },
+  "meta": {
+    "title": "RunBoyRun.dev | Code is your language. Platform is your stage.",
+    "description": "RunBoyRun is a living experience platform for creative developers."
+  }
+} 
