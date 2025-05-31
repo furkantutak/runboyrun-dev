@@ -1,0 +1,65 @@
+{
+  "title": "Sprint Journals",
+  "subtitle": "The birth and evolution of RunBoyRun. Each sprint, a new step.",
+  "badge": "Development Journal",
+  "comingSoon": "New sprints coming soon...",
+  "sections": {
+    "highlights": "Highlights",
+    "contributors": "Contributors",
+    "techStack": "Tech Stack"
+  },
+  "sprints": {
+    "24-8": {
+      "title": "Parallax & Manifesto",
+      "date": "2024-03-24",
+      "emoji": "🚀",
+      "summary": "RunBoyRun's manifesto started taking shape. We brought life to the site with parallax effects and animations.",
+      "highlights": [
+        "Four main sections designed for Manifesto page: Why, What, Who, How",
+        "ParallaxBackground component developed",
+        "Page transition animations added with Framer Motion",
+        "Dark/Light mode support completed"
+      ],
+      "contributors": [
+        {
+          "name": "Furkan",
+          "contribution": "Page structure and animation system"
+        },
+        {
+          "name": "LENA",
+          "contribution": "UI/UX design and parallax effects"
+        },
+        {
+          "name": "KOSMOS",
+          "contribution": "Manifesto content and technical consulting"
+        }
+      ]
+    },
+    "24-9": {
+      "title": "Ecosystem & Team",
+      "date": "2024-03-25",
+      "emoji": "👥",
+      "summary": "RunBoyRun is now not just a site, but a team. The ecosystem page came to life with AgentCards.",
+      "highlights": [
+        "AgentCard component designed and developed",
+        "Team member profiles and roles defined",
+        "Responsive grid layout implementation",
+        "Hover and transition animations added"
+      ],
+      "contributors": [
+        {
+          "name": "Furkan",
+          "contribution": "Ecosystem vision and technical implementation"
+        },
+        {
+          "name": "LENA",
+          "contribution": "Card designs and visual elements"
+        },
+        {
+          "name": "Claude",
+          "contribution": "Code optimization and best practices"
+        }
+      ]
+    }
+  }
+} 

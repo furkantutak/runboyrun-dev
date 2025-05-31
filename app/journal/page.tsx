@@ -2,11 +2,26 @@
 
 import { motion } from "framer-motion";
 import { ScrollText } from "lucide-react";
+import { useTranslation } from "next-i18next";
 import SprintCard from "@/components/journal/SprintCard";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
-import { sprintEntries } from "@/lib/content/sprints";
+
+const SPRINT_IDS = ["24-8", "24-9"] as const;
 
 export default function JournalPage() {
+  const { t } = useTranslation("journal");
+
+  const sprintEntries = SPRINT_IDS.map(id => ({
+    id: `sprint-${id}`,
+    title: t(`sprints.${id}.title`),
+    date: t(`sprints.${id}.date`),
+    emoji: t(`sprints.${id}.emoji`),
+    summary: t(`sprints.${id}.summary`),
+    highlights: t(`sprints.${id}.highlights`, { returnObjects: true }) as string[],
+    contributors: t(`sprints.${id}.contributors`, { returnObjects: true }) as { name: string; contribution: string }[],
+    techStack: ["Next.js", "Framer Motion", "Tailwind CSS", "TypeScript"]
+  }));
+
   return (
     <div className="relative min-h-screen w-full py-24">
       <ParallaxBackground className="opacity-30" />
@@ -20,14 +35,14 @@ export default function JournalPage() {
         >
           <div className="inline-flex items-center gap-2 text-sm text-muted-foreground border border-border rounded-full px-4 py-2 mb-8">
             <ScrollText className="w-4 h-4" />
-            Gelişim Günlüğü
+            {t("badge")}
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            Sprint Günlükleri
+            {t("title")}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            RunBoyRun'un sıfırdan doğuşu ve gelişimi. Her sprint, yeni bir adım.
+            {t("subtitle")}
           </p>
         </motion.div>
 
@@ -51,7 +66,7 @@ export default function JournalPage() {
           >
             <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-              Yeni sprintler yolda...
+              {t("comingSoon")}
             </div>
           </motion.div>
         </div>

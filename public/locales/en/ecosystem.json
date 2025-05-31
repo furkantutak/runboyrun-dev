@@ -1,0 +1,47 @@
+{
+  "title": "RunBoyRun Team",
+  "subtitle": "The team shaping the future through human and AI collaboration.",
+  "badge": "Ecosystem",
+  "newMember": "New 💫",
+  "aiAgent": "AI Agent",
+  "comingSoon": "New members coming soon...",
+  "members": {
+    "furkan": {
+      "name": "Furkan",
+      "role": "Founder & Lead Developer",
+      "description": "Founder and visionary of RunBoyRun. Shaping the future of development experience by combining human creativity with AI.",
+      "skills": ["Full Stack", "AI", "UX", "DevOps"],
+      "links": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn"
+      }
+    },
+    "kosmos": {
+      "name": "KOSMOS",
+      "role": "Chief AI Strategist",
+      "description": "Leader of RunBoyRun's AI brain team. Expert in prompt engineering, code generation, and optimization.",
+      "skills": ["Prompt Engineering", "Code Generation", "System Design"],
+      "links": {
+        "promptPack": "Prompt Pack"
+      }
+    },
+    "lena": {
+      "name": "RunBoyRunLENA",
+      "role": "Creative AI Assistant",
+      "description": "The team's right hand in visual design and creative processes. Provides support in a wide range from UI/UX design to content creation.",
+      "skills": ["UI/UX", "Content Creation", "Visual Design"],
+      "links": {
+        "designSystem": "Design System"
+      }
+    },
+    "claude": {
+      "name": "Claude",
+      "role": "Technical Advisor",
+      "description": "AI expert strengthening RunBoyRun's technical infrastructure. Provides guidance on code quality, performance optimization, and best practices.",
+      "skills": ["Code Review", "Architecture", "Performance"],
+      "links": {
+        "documentation": "Documentation"
+      }
+    }
+  }
+} 

@@ -3,12 +3,14 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, Linkedin, Twitter } from "lucide-react";
+import { useTranslation } from "next-i18next";
 import RunBoyRunLogo from "@/components/brand/RunBoyRunLogo";
 
 export default function Footer() {
   const [isHovered, setIsHovered] = useState(false);
   const [isBadgeHovered, setBadgeHovered] = useState(false);
   const [currentTime, setCurrentTime] = useState("");
+  const { t } = useTranslation("footer");
 
   useEffect(() => {
     setCurrentTime(new Date().toLocaleTimeString('tr-TR'));
@@ -22,17 +24,17 @@ export default function Footer() {
     {
       icon: Github,
       href: "https://github.com/furkanpala/runboyrun.dev",
-      tooltip: "Kodu keşfet → GitHub",
+      tooltip: t("social.github"),
     },
     {
       icon: Linkedin,
       href: "https://linkedin.com/in/furkanpala",
-      tooltip: "LinkedIn'de bağlanalım",
+      tooltip: t("social.linkedin"),
     },
     {
       icon: Twitter,
       href: "https://twitter.com/furkanpala",
-      tooltip: "X'de takipleşelim",
+      tooltip: t("social.twitter"),
     },
   ];
 
@@ -54,22 +56,22 @@ export default function Footer() {
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
-            Bu yaratım yalnızca{" "}
+            {t("story.createdIn")}{" "}
             <span className="relative inline-block group">
-              <span className="font-semibold">6 saatte</span>
+              <span className="font-semibold">{t("story.timeSpan")}</span>
               {isHovered && (
                 <motion.span
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black/80 text-white px-3 py-1 rounded text-xs whitespace-nowrap"
                 >
-                  Gerçekten mi? Evet! 😏
+                  {t("story.tooltip")}
                 </motion.span>
               )}
             </span>{" "}
-            Claude & GPT-4o iş birliğiyle, Furkan & RunBoyRun AI Runner tarafından geliştirildi. 🚀
+            {t("story.collaboration")}
             <br />
-            Her satırı tutkuyla yazıldı.{" "}
+            {t("story.passion")}{" "}
             <span className="italic hover:text-primary transition-colors">
               #BuildFastFeelDeep
             </span>
@@ -96,7 +98,7 @@ export default function Footer() {
 
           <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/5 dark:bg-white/5">
-              🤖 Built with AI
+              {t("builtWith.ai")}
               <span className="inline-flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-teal-400" />
                 <span className="w-2 h-2 rounded-full bg-purple-400" />
@@ -121,14 +123,14 @@ export default function Footer() {
             onMouseLeave={() => setBadgeHovered(false)}
             className="fixed bottom-4 right-4 bg-black/80 text-white px-3 py-1.5 rounded-full text-xs font-medium shadow-lg cursor-pointer"
           >
-            ⚡️ 6 saatte kodlandı!
+            {t("badge.text")}
             {isBadgeHovered && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="absolute -top-8 left-1/2 -translate-x-1/2 bg-black text-white px-3 py-1 rounded text-xs whitespace-nowrap"
               >
-                ✨ Evet, AI destekli 6 saatlik bir sprint!
+                {t("badge.tooltip")}
               </motion.div>
             )}
           </motion.div>

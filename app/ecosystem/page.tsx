@@ -2,11 +2,31 @@
 
 import { motion } from "framer-motion";
 import { Users } from "lucide-react";
+import { useTranslation } from "next-i18next";
 import AgentCard from "@/components/ecosystem/AgentCard";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
-import { ecosystemMembers } from "@/lib/ecosystem";
+
+const MEMBER_IDS = ["furkan", "kosmos", "lena", "claude"] as const;
 
 export default function EcosystemPage() {
+  const { t } = useTranslation("ecosystem");
+
+  const ecosystemMembers = MEMBER_IDS.map(id => ({
+    name: t(`members.${id}.name`),
+    role: t(`members.${id}.role`),
+    description: t(`members.${id}.description`),
+    avatar: `/images/${id}.jpg`,
+    type: id === "furkan" ? ("human" as const) : ("ai" as const),
+    skills: t(`members.${id}.skills`, { returnObjects: true }) as string[],
+    links: Object.entries(t(`members.${id}.links`, { returnObjects: true })).map(([key, title]) => ({
+      title: title as string,
+      url: key === "github" ? "https://github.com/furkanpala" :
+           key === "linkedin" ? "https://linkedin.com/in/furkanpala" :
+           `/${key.toLowerCase()}`
+    })),
+    isNew: id === "kosmos" || id === "lena"
+  }));
+
   return (
     <div className="relative min-h-screen w-full py-24">
       <ParallaxBackground className="opacity-30" />
@@ -20,14 +40,14 @@ export default function EcosystemPage() {
         >
           <div className="inline-flex items-center gap-2 text-sm text-muted-foreground border border-border rounded-full px-4 py-2 mb-8">
             <Users className="w-4 h-4" />
-            Ekosistem
+            {t("badge")}
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            RunBoyRun Ekibi
+            {t("title")}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            İnsan ve yapay zeka iş birliğiyle geleceği şekillendiren ekip.
+            {t("subtitle")}
           </p>
         </motion.div>
 
@@ -52,7 +72,7 @@ export default function EcosystemPage() {
         >
           <div className="inline-flex items-center gap-2 text-sm text-muted-foreground">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Yeni üyeler yakında...
+            {t("comingSoon")}
           </div>
         </motion.div>
       </div>

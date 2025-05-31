@@ -1,0 +1,33 @@
+{
+  "createdWith": "Made with ❤️",
+  "by": "by",
+  "links": {
+    "manifesto": "Manifesto",
+    "ecosystem": "Ecosystem",
+    "journal": "Journal",
+    "promptPack": "Prompt Pack"
+  },
+  "story": {
+    "title": "Story",
+    "createdIn": "This creation was made in just",
+    "timeSpan": "6 hours",
+    "tooltip": "Really? Yes! 😏",
+    "collaboration": "Through collaboration between Claude & GPT-4o, by Furkan & RunBoyRun AI Runner. 🚀",
+    "passion": "Every line was written with passion."
+  },
+  "social": {
+    "github": "Explore the code → GitHub",
+    "linkedin": "Connect on LinkedIn",
+    "twitter": "Follow on Twitter"
+  },
+  "builtWith": {
+    "ai": "🤖 Built with AI"
+  },
+  "badge": {
+    "text": "⚡️ Coded in 6 hours!",
+    "tooltip": "✨ Yes, an AI-powered 6-hour sprint!"
+  },
+  "i18n": {
+    "status": "🌍 Multilingual support active"
+  }
+} 

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
+import { useTranslation } from "next-i18next";
 import AgentDetailModal from "./AgentDetailModal";
 
 export interface AgentCardProps {
@@ -32,6 +33,7 @@ export default function AgentCard({
 }: AgentCardProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { t } = useTranslation("ecosystem");
 
   return (
     <>
@@ -68,7 +70,7 @@ export default function AgentCard({
                   animate={{ scale: 1 }}
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 >
-                  Yeni 💫
+                  {t("newMember")}
                 </motion.div>
               )}
             </div>
@@ -78,7 +80,7 @@ export default function AgentCard({
                 <h3 className="text-lg font-semibold truncate">{name}</h3>
                 {type === "ai" && (
                   <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-primary/10 text-primary">
-                    AI Agent
+                    {t("aiAgent")}
                   </span>
                 )}
               </div>

@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Calendar, CheckCircle2, Code2, Users } from "lucide-react";
+import { useTranslation } from "next-i18next";
 import type { SprintEntry } from "@/lib/content/sprints";
 
 export default function SprintCard({ sprint }: { sprint: SprintEntry }) {
+  const { t } = useTranslation("journal");
+
   return (
     <motion.article
       className="relative group"
@@ -23,7 +26,7 @@ export default function SprintCard({ sprint }: { sprint: SprintEntry }) {
               <h3 className="text-xl font-semibold">Sprint {sprint.title}</h3>
               <div className="flex items-center gap-2 text-sm text-muted-foreground mt-1">
                 <Calendar className="w-4 h-4" />
-                {new Date(sprint.date).toLocaleDateString('tr-TR', { 
+                {new Date(sprint.date).toLocaleDateString(undefined, { 
                   day: 'numeric',
                   month: 'long',
                   year: 'numeric'
@@ -42,7 +45,7 @@ export default function SprintCard({ sprint }: { sprint: SprintEntry }) {
         <div className="space-y-4 mb-6">
           <h4 className="font-medium flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 text-primary" />
-            Öne Çıkanlar
+            {t("sections.highlights")}
           </h4>
           <ul className="space-y-2 text-sm text-muted-foreground">
             {sprint.highlights.map((highlight, index) => (
@@ -58,7 +61,7 @@ export default function SprintCard({ sprint }: { sprint: SprintEntry }) {
         <div className="space-y-4 mb-6">
           <h4 className="font-medium flex items-center gap-2">
             <Users className="w-4 h-4 text-primary" />
-            Katkıda Bulunanlar
+            {t("sections.contributors")}
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {sprint.contributors.map((contributor, index) => (
@@ -75,7 +78,7 @@ export default function SprintCard({ sprint }: { sprint: SprintEntry }) {
           <div className="space-y-4">
             <h4 className="font-medium flex items-center gap-2">
               <Code2 className="w-4 h-4 text-primary" />
-              Tech Stack
+              {t("sections.techStack")}
             </h4>
             <div className="flex flex-wrap gap-2">
               {sprint.techStack.map((tech, index) => (

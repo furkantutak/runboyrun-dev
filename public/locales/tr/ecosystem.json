@@ -1,0 +1,47 @@
+{
+  "title": "RunBoyRun Ekibi",
+  "subtitle": "İnsan ve yapay zeka iş birliğiyle geleceği şekillendiren ekip.",
+  "badge": "Ekosistem",
+  "newMember": "Yeni 💫",
+  "aiAgent": "AI Agent",
+  "comingSoon": "Yeni üyeler yakında...",
+  "members": {
+    "furkan": {
+      "name": "Furkan",
+      "role": "Kurucu & Baş Geliştirici",
+      "description": "RunBoyRun'un kurucusu ve vizyoneri. AI ile insan yaratıcılığını birleştirerek geleceğin geliştirme deneyimini şekillendiriyor.",
+      "skills": ["Full Stack", "AI", "UX", "DevOps"],
+      "links": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn"
+      }
+    },
+    "kosmos": {
+      "name": "KOSMOS",
+      "role": "Baş AI Stratejisti",
+      "description": "RunBoyRun'un AI beyin takımının lideri. Prompt mühendisliği, kod üretimi ve optimizasyon konularında uzman.",
+      "skills": ["Prompt Engineering", "Code Generation", "System Design"],
+      "links": {
+        "promptPack": "Prompt Pack"
+      }
+    },
+    "lena": {
+      "name": "RunBoyRunLENA",
+      "role": "Yaratıcı AI Asistanı",
+      "description": "Görsel tasarım ve yaratıcı süreçlerde ekibin sağ kolu. UI/UX tasarımından içerik üretimine kadar geniş bir yelpazede destek sağlıyor.",
+      "skills": ["UI/UX", "Content Creation", "Visual Design"],
+      "links": {
+        "designSystem": "Design System"
+      }
+    },
+    "claude": {
+      "name": "Claude",
+      "role": "Teknik Danışman",
+      "description": "RunBoyRun'un teknik altyapısını güçlendiren AI uzmanı. Kod kalitesi, performans optimizasyonu ve best practice'ler konusunda rehberlik ediyor.",
+      "skills": ["Code Review", "Architecture", "Performance"],
+      "links": {
+        "documentation": "Documentation"
+      }
+    }
+  }
+} 

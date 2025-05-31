@@ -3,39 +3,34 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
+import { useTranslation } from "next-i18next";
 
 const manifestoSections = [
   {
-    id: "why",
+    id: "vision",
     emoji: "🔥",
-    title: "Neden Koşuyoruz?",
-    content: "Çünkü durağanlık bize göre değil. Her gün yeni bir ufka doğru koşuyoruz. Teknoloji ve yaratıcılık bizim pistimiz, inovasyon bizim tempomuzu belirliyor.",
     color: "from-yellow-400 to-orange-500",
   },
   {
-    id: "what",
+    id: "mission",
     emoji: "🎯",
-    title: "Neye İnanıyoruz?",
-    content: "İnanıyoruz ki kod sadece bir araç değil, bir ifade biçimi. Yapay zeka bir rakip değil, bir koşu arkadaşı. Ve her satır kod, daha iyi bir geleceğe atılan bir adım.",
     color: "from-blue-400 to-teal-500",
   },
   {
-    id: "who",
+    id: "values",
     emoji: "🧑‍🚀",
-    title: "Bu Hareket Kimleri Kapsar?",
-    content: "Teknolojinin sınırlarını zorlayanları. Yaratıcılığını kodla ifade edenleri. AI ile dans edenleri. Ve en önemlisi, durduğu yerde sayamayanları.",
     color: "from-purple-400 to-pink-500",
   },
   {
-    id: "how",
+    id: "principles",
     emoji: "⚡️",
-    title: "Nasıl Yapıyoruz?",
-    content: "Hızlı düşünüyor, cesurca geliştiriyor, tutkuyla kodluyoruz. AI'ı bir araç olarak değil, bir ortak olarak görüyoruz. Ve her projede bir parça ruhumuzu bırakıyoruz.",
     color: "from-green-400 to-teal-500",
   },
 ];
 
 export default function ManifestoPage() {
+  const { t } = useTranslation("manifesto");
+
   return (
     <div className="relative min-h-screen w-full py-24">
       <ParallaxBackground className="opacity-30" />
@@ -48,10 +43,10 @@ export default function ManifestoPage() {
           className="text-center space-y-4 mb-16"
         >
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            RunBoyRun Manifestosu
+            {t("title")}
           </h1>
           <p className="text-xl text-muted-foreground">
-            Bir koşu değil, bir hareket. Bir platform değil, bir vizyon.
+            {t("subtitle")}
           </p>
         </motion.div>
 
@@ -74,13 +69,21 @@ export default function ManifestoPage() {
               <div className="bg-black/5 dark:bg-white/5 backdrop-blur-sm rounded-lg p-8 hover:bg-black/10 dark:hover:bg-white/10 transition-all duration-300 group-hover:scale-[1.02]">
                 <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                   <span className={`bg-gradient-to-r ${section.color} bg-clip-text text-transparent`}>
-                    {section.title}
+                    {t(`sections.${section.id}.title`)}
                   </span>
                   <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:translate-x-1 transition-transform" />
                 </h2>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  {section.content}
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+                  {t(`sections.${section.id}.description`)}
                 </p>
+                <ul className="space-y-2">
+                  {(t(`sections.${section.id}.items`, { returnObjects: true }) as string[]).map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-center gap-2 text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           ))}
@@ -90,11 +93,19 @@ export default function ManifestoPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-24 text-center"
+          className="mt-24 text-center space-y-4"
         >
           <div className="inline-flex items-center gap-2 text-sm text-muted-foreground border border-border rounded-full px-4 py-2">
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-            Hareket devam ediyor...
+            {t("cta.join")}
+          </div>
+          <div className="flex justify-center gap-4">
+            <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {t("cta.explore")}
+            </button>
+            <button className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              {t("cta.contribute")}
+            </button>
           </div>
         </motion.div>
       </div>

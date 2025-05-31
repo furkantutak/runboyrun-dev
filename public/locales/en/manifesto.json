@@ -1,0 +1,51 @@
+{
+  "title": "RunBoyRun Manifesto",
+  "subtitle": "A movement, a mindset, a mission.",
+  "sections": {
+    "vision": {
+      "title": "Vision",
+      "description": "RunBoyRun is a living experience platform for creative developers. We're shaping the future of development experience by combining human creativity with AI.",
+      "items": [
+        "Code is your language, platform is your stage",
+        "Every line of code tells a story",
+        "AI is not an assistant, but a partner",
+        "Speed and depth coexist"
+      ]
+    },
+    "mission": {
+      "title": "Mission",
+      "description": "To redefine the developer experience and create an AI-powered development culture.",
+      "items": [
+        "Sustainable code production",
+        "AI-powered development practices",
+        "Community-driven growth",
+        "Open source philosophy"
+      ]
+    },
+    "values": {
+      "title": "Values",
+      "description": "RunBoyRun's core values shape every decision and action we take.",
+      "items": [
+        "Build fast, feel deep",
+        "Share and grow",
+        "Learn by doing",
+        "Strengthen with community"
+      ]
+    },
+    "principles": {
+      "title": "Principles",
+      "description": "These principles define RunBoyRun's methodology of working and creating.",
+      "items": [
+        "Think with AI, create like human",
+        "Start fast, improve continuously",
+        "Grow with feedback",
+        "Share the experience"
+      ]
+    }
+  },
+  "cta": {
+    "join": "Join the Movement",
+    "explore": "Explore Manifesto",
+    "contribute": "Contribute"
+  }
+} 

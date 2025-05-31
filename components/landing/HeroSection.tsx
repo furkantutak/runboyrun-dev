@@ -3,9 +3,12 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslation } from "next-i18next";
 import ParallaxBackground from "@/components/ui/ParallaxBackground";
 
 export default function HeroSection() {
+  const { t } = useTranslation("hero");
+
   return (
     <motion.section
       className="relative w-full min-h-[80vh] flex flex-col items-center justify-center py-24 text-center space-y-8"
@@ -27,9 +30,9 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Kod senin dilin.{" "}
+          {t("title")}{" "}
           <span className="text-teal-400 drop-shadow-[0_0_20px_rgba(45,212,191,0.4)]">
-            Platform senin sahnen.
+            {t("highlight")}
           </span>
         </motion.h1>
 
@@ -39,7 +42,7 @@ export default function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          RunBoyRun, yaratıcı geliştiriciler için yaşayan bir deneyim alanı.
+          {t("description")}
         </motion.p>
 
         <motion.div 
@@ -50,7 +53,7 @@ export default function HeroSection() {
         >
           <Link href="/terminal">
             <Button size="lg" className="text-lg px-8 py-6 hover:scale-105 transition-transform">
-              🚀 Hemen Terminale Geç
+              {t("cta")}
             </Button>
           </Link>
         </motion.div>
